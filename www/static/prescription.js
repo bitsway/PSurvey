@@ -300,7 +300,7 @@ function prescription_submit(){
 									document.getElementById('myImagePrescription').src = '';
 									
 									//image upload function									
-									//uploadPhoto(prescriptionPhoto, imageName);
+									uploadPhoto(prescriptionPhoto, imageName);
 									
 									
 									$("#doctor_name").val("");
