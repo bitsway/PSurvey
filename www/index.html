@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- Designed and developed by Business Solution Apps team -->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>SmartDoctor</title>
+		<link rel="stylesheet" href="static/c.min.css" />
+		<link rel="stylesheet" href="static/jquery.mobile.icons.min.css" />
+		
+		<link rel="stylesheet" href="static/jquery.mobile-1.4.0.min.css" />
+        <script src="static/jquery-1.10.2.min.js"></script>
+        <script src="static/jquery.mobile-1.4.0.min.js"></script>
+		<script src="static/prescription.js"></script>
+    
+	<style>
+		table.tbl_preview tr td { border:1px solid #5FAFAF; background-color:#EFF8F8;}
+		.ui-radio{ width:100%;}
+		.ui-controlgroup-controls{ width:100%;}
+		.ui-controlgroup-vertical{ width:200%;}
+	</style>
+    
+	<script type="text/javascript">
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+    </script>
+    </head>
+	
+    <body>
+		 <!--===================== pageSync ==================-->
+		<div data-theme="c" data-role="page" id="login">
+            <div data-theme="c" data-role="header" data-position="fixed">				
+				<a  data-role="button" href="#pageHome" class="ui-btn-left ui-btn-icon-notext"><img src="menu.png"></a>
+                <h3>Authorization</h3>
+            </div>
+			
+            <div data-role="content">
+            	<div id="error_login" style="color:#B70000"></div>                
+                   					
+				<table  border="0" class="ui-body-d ui-shadow table-stripe ui-responsive" data-role="table" data-theme="d"  data-mode="display:none" style="cell-spacing:0px; width:100%; font-size:98%;">
+                    <tr >
+                      <td style="width:30%;" ><strong style="font-size:15px; color:#008040">CID</strong></td>
+                      <td style="width:70%;" ><input id="c_id" name="c_id" type="text"  value="" ></td>              
+                    </tr>
+                    <tr >
+                      <td style="width:30%;" ><strong style="font-size:15px; color:#008040">UserID</strong></td>
+                      <td style="width:70%;" ><input id="user_id" name="user_id" type="number"  value="" ></td>              
+                    </tr>
+                    <tr >
+                      <td style="width:30%;" ><strong style="font-size:15px; color:#008040">Password</strong></td>
+                      <td style="width:70%;" ><input  id="user_pass" name="user_pass"  type="number"  value="" ></td>              
+                    </tr>
+                 </table>
+                <br><br>
+                
+				<a data-role="button" id="loginButton" onClick="check_user();" >Sync</a>
+				<div align="center"><img id="wait_image_login" style="" width="50px;" src="loading.gif" alt=""></div>
+                                
+                <br>
+               
+                <br><br><br><br><br><br><br><br>
+                <input name="clear_auth_check" id="clear_auth_check" data-mini="true" type="checkbox" value="Yes">
+                <label for="clear_auth_check">Confirm Clear Authorization</label>
+                
+                <a data-role="button" onClick="clear_autho();" >Clear Authorization</a>
+                
+                <br><br><br><br><br><br>
+                       
+            </div>
+			
+        <!-- ==========footer====== -->	
+        <div data-theme="c" data-role="footer" data-position="fixed"></div>
+        
+        </div>		
+
+
+
+<!-- =====================Home page=============== -->
+		<div data-theme="c" data-role="page" id="pageHome">
+			<div data-role="panel" id="routePanel" data-display="overlay" style="width:60%; background-color:#FFF">
+				
+				<div align="center">               
+                <br>
+				</div>
+                
+				<br><br><br><br>
+                
+				<ul data-role="listview">                    
+                    <br><br>
+                    <div style="background:#008A8A; height:1px"></div>
+                    <li ><div ><a href="#login" ><img src="sync.png"></a></div></li> 
+                    <div style="background:#008A8A; height:1px"></div>
+                </ul>
+                
+				<div style="margin:100%;"></div>
+				
+			</div><!-- /panel -->
+			
+            <div data-theme="c" data-role="header" data-position="fixed" >			
+				<a  data-role="button" href="#routePanel" class="ui-btn-left ui-btn-icon-notext"><img src="menu.png"></a>
+                <a  data-role="button" onClick="exit();" class="ui-btn-right" style="padding:4px;"><img src="exit.png" style="height:25px; width:25px;"></a>
+                <h3>Survey</h3>
+            </div>
+            
+            <div data-role="content" style="margin-top:0px; padding-top:0px">      
+            	
+                <div id="error_home_page" style="color:#B70000"></div>
+                <br>
+                <br>
+                
+                <a data-role="button" onClick="getPrescriptionImage();" >Take Picture</a>
+                <img src="" width="100%" height="150" alt="" id="myImagePrescription">
+                <input name="prescriptionPhoto" id="prescriptionPhoto" type="hidden" value="">
+                                  
+                 <br><br>
+
+                  <a  data-role="button" onClick="takePictureNext();" >Next</a>
+                  
+                  <br><br>
+             </div>	
+             
+             <br><br><br>
+			
+             <div data-theme="c" data-role="footer" data-position="fixed"></div>
+             			
+      </div>
+
+
+
+
+<!--==========================Profile====================-->
+<div data-theme="c" data-role="page" id="page_prescription">
+    <div data-theme="c" data-role="header" data-position="fixed">
+        <a  data-role="button" href="#pageHome" class="ui-btn-left ui-btn-icon-notext"><img src="menu.png"></a>
+        <a data-role="button" data-rel="back"  data-iconpos="left" class="ui-btn-right"><img src="back.png"></a>
+        <h3>Submit</h3>
+    </div>
+    
+    <div data-role="content">
+        
+        <table  border="0" class="ui-body-d ui-shadow table-stripe ui-responsive" data-role="table" data-theme="d"  data-mode="display:none" style="cell-spacing:0px; width:100%; font-size:98%;">
+        	<tr >
+              <td style="width:100%;" ><strong style="font-size:15px; color:#008040">Doctor:</strong><input id="doctor_name" name="doctor_name" type="text" placeholder="Doctor Name"></td>
+            </tr>
+            <tr >
+              <td style="width:100%;" ><strong style="font-size:15px; color:#008040">Prescription:</strong>
+              <input  id="medicine_1" name="medicine_1"  type="text" placeholder="Medicine Name"></td>
+            </tr>
+            <tr >
+              <td style="width:100%;" ><input id="medicine_2" name="medicine_2" type="text" placeholder="Medicine Name"></td>
+            </tr>
+            <tr >
+              <td style="width:100%;" ><input  id="medicine_3" name="medicine_3"  type="text" placeholder="Medicine Name"></td>
+            </tr>
+            <tr >
+              <td style="width:100%;" ><input  id="medicine_4" name="medicine_4"  type="text" placeholder="Medicine Name"></td>
+            </tr>
+            <tr >
+              <td style="width:100%;" ><input  id="medicine_5" name="medicine_5"  type="text" placeholder="Medicine Name"></td>
+            </tr>            
+        </table>
+        <br>
+        
+		<a data-role="button" onClick="getLocation();" >Confirm Location</a>
+        <input type="hidden" name="lat" id="lat" value="">
+		<input type="hidden" name="long" id="long" value=""><!--readonly-->
+        
+        <div id="error_prescription_submit" style="color:#B70000"></div>   
+        <br><br>
+        
+    	<div  id="btn_prescription_submit"><a  data-role="button" onClick="prescription_submit();">Submit</a></div>
+         
+        <div align="center"><img id="wait_image_prescription" style="" width="50px;" src="loading.gif" alt=""></div>
+        
+    </div><!--/cont-->
+    <br>
+	
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div data-theme="c" data-role="footer" data-position="fixed"></div>			
+ </div><!--/page-->
+ 
+<!-- ------------- Visit Success -------------------- -->
+	<div data-theme="c" data-role="page" id="page_success" >
+		<div data-theme="c" data-role="header" data-position="fixed" >
+		<a  data-role="button" href="#pageHome" class="ui-btn-left ui-btn-icon-notext"><img src="menu.png"></a> 
+        <!--<a data-role="button" data-rel="back"  data-iconpos="left" class="ui-btn-right"><img src="back.png"></a>-->
+        <h3>Success</h3>
+	  </div>
+		<div data-role="content">
+        	
+            <br>			
+            <div id="success_message" style="background-image:url(result_back.png); background-repeat:no-repea; width:300px; margin:0px auto; height:200px; color:#FFF; font-size:20px; vertical-align:middle; text-align:center; padding-top:5px;" ></br>Submitted Successfully</div>
+            
+            <br>
+            <br>
+            <br>
+            <a  data-role="button" href="#pageHome" >New</a><br>
+			<br>
+			
+		</div>
+		
+		<div data-theme="c" data-role="footer" data-position="fixed" style="text-align:center"></div>	
+	</div>
+
+
+<!--========================New Appoinment==================-->
+     
+    <script type="text/javascript" src="phonegap.js"></script>
+    
+    
+    </body>
+</html>
