@@ -1703,7 +1703,7 @@ function uploadPhoto(imageURI, imageName) {
 	
     var ft = new FileTransfer();
      ft.upload(imageURI, encodeURI(localStorage.photo_submit_url+"fileUploaderPrescription/"),winProfile,failProfile,options);
-	 prescription_pic
+	 
 }
 
 function winProfile(r) {
