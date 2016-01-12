@@ -1079,8 +1079,8 @@ function prescription_submit(){
 		var latitude=$("#lat").val();
 		var longitude=$("#long").val();		
 		
-		//var prescriptionPhoto=$("#prescriptionPhoto").val();
-		var prescriptionPhoto='aa';
+		var prescriptionPhoto=$("#prescriptionPhoto").val();
+		//var prescriptionPhoto='aa';
 		
 		if (prescriptionPhoto==''){
 			$("#error_prescription_submit").html('Required picture');
@@ -1128,7 +1128,7 @@ function prescription_submit(){
 									document.getElementById('myImagePrescription').src = '';
 									
 									//image upload function									
-									//uploadPhoto(prescriptionPhoto, imageName);
+									uploadPhoto(prescriptionPhoto, imageName);
 									//alert ('0')
 									
 									$("#doctor_name").val("");
@@ -1147,6 +1147,9 @@ function prescription_submit(){
 									//alert ('2')
 									//--------------------------
 									clear_mgs();
+									$("#wait_image_prescription").hide();
+						 		    $("#btn_prescription_submit").hide();
+   								    $("#btn_loc_submit").show();
 									url = "#page_success";
 									$.mobile.navigate(url);	
 									
@@ -1173,17 +1176,17 @@ function prescription_submit(){
 //======================Doctor End==============
 function clear_mgs(){
 	$("#error_login").html('');
-	alert ('1');
+	
 	$("#error_home_page").html('');	
-	alert ('2');
+	
 	$("#err_market_next").html('');
-	alert ('3');
+	
 	$("#err_m_retailer_next").html('');
-	alert ('4');
+	
 	$("#myerror_doctor_campaign").html('');
-	alert ('5');
+	
 	$("#error_prescription_submit").html('');
-	alert ('6');
+
 	
 }
 
