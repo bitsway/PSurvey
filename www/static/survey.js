@@ -1073,22 +1073,25 @@ function prescription_submit(){
 	
 	if (doctor_name==''){		
 		$("#error_prescription_submit").text("Required Doctor");
+		$("#wait_image_prescription").show();
 	}else{
 		
 		var latitude=$("#lat").val();
 		var longitude=$("#long").val();		
 		
-		var prescriptionPhoto=$("#prescriptionPhoto").val();
-		//var prescriptionPhoto='aa';
+		//var prescriptionPhoto=$("#prescriptionPhoto").val();
+		var prescriptionPhoto='aa';
 		
 		if (prescriptionPhoto==''){
 			$("#error_prescription_submit").html('Required picture');
+			$("#wait_image_prescription").show();
 		}else{			
 			var now = $.now();
 			var imageName=localStorage.user_id+'_'+now.toString()+'.jpg';
 			
 			if (latitude=='' || latitude==0 || longitude=='' || longitude==0){
-				$("#error_prescription_submit").html('Location not Confirmed');		
+				$("#error_prescription_submit").html('Location not Confirmed');	
+				$("#wait_image_prescription").show();	
 			}else{
 								
 				$("#wait_image_prescription").show();
@@ -1125,7 +1128,7 @@ function prescription_submit(){
 									document.getElementById('myImagePrescription').src = '';
 									
 									//image upload function									
-									uploadPhoto(prescriptionPhoto, imageName);
+									//uploadPhoto(prescriptionPhoto, imageName);
 									//alert ('0')
 									
 									$("#doctor_name").val("");
@@ -1170,11 +1173,17 @@ function prescription_submit(){
 //======================Doctor End==============
 function clear_mgs(){
 	$("#error_login").html('');
+	alert ('1');
 	$("#error_home_page").html('');	
+	alert ('2');
 	$("#err_market_next").html('');
+	alert ('3');
 	$("#err_m_retailer_next").html('');
+	alert ('4');
 	$("#myerror_doctor_campaign").html('');
+	alert ('5');
 	$("#error_prescription_submit").html('');
+	alert ('6');
 	
 }
 
