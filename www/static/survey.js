@@ -1162,6 +1162,7 @@ function prescription_submit(){
 									url = "#page_success";
 									$.mobile.navigate(url);	
 									
+									
 								}else{						
 									$("#error_prescription_submit").html('Authentication error. Please register and sync to retry.');
 									$("#wait_image_prescription").hide();
@@ -1195,6 +1196,13 @@ function clear_mgs(){
 	$("#myerror_doctor_campaign").html('');
 	
 	$("#error_prescription_submit").html('');
+
+	
+}
+function new_ps(){
+	url = "#pageHome";
+	$.mobile.navigate(url);	
+	location.reload();
 
 	
 }
