@@ -110,6 +110,7 @@ function clear_autho(){
 		//localStorage.profile_m_client_org_id='';
 		
 		//----------
+		localStorage.campaign_doc_str=''
 		localStorage.campaign_string=''	;
 		localStorage.visit_camp_list_str='';
 		localStorage.visit_camp_submit_str='';
@@ -167,7 +168,7 @@ function check_user() {
 
 	
 	//var  apipath_base_photo_dm='http://eapps001.cloudapp.net/mrepacme/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
-	//var  apipath_base_photo_dm='http://127.0.0.1:8000/mrepbiopharma/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
+//	var  apipath_base_photo_dm='http://127.0.0.1:8000/mrepbiopharma/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
 	
 	
   var apipath_base_photo_dm ='http://e2.businesssolutionapps.com/welcome/dmpath_prescription/get_path?CID='+cid +'&HTTPPASS=e99business321cba';
@@ -666,10 +667,14 @@ function marketRetailerNextLV(lvalue) {
 	$("#unscheduled_m_client_combo_id").val(lvalue);
 	//alert(lvalue);
 	if(localStorage.doctor_flag==1){
-		marketRetailerNext_doc();	
+		marketRetailerNext_doc();
+		
+		localStorage.campaign_doc_str=''
+		//alert (localStorage.campaign_doc_str)
 	}
 	else{
 		marketRetailerNext();	
+		localStorage.campaign_doc_str=''
 	}
 		
 	}
@@ -978,24 +983,26 @@ function search_item_doctor_campaign() {
 //--------------------Campaign Item Search End----------------
 //--------------------------------- Order: Set Order data
 function getDocCampaignData_keyup(product_id){
+	
 	var pid=$("#doc_camp_id"+product_id).val();
 	var pname=$("#doc_camp_name"+product_id).val();
 	var camp_combo="#doc_camp"+product_id
 	
 	var camp_combo_val=$(camp_combo).is(":checked")
 	
-	
+
 	var campaign_doc_str=localStorage.campaign_doc_str
 	var campaign_docShowStr='';
 	var campaign_doc_strList="";
         var campaign_doc_strListLength=0;
         var campaign_docProductId="";
-	//alert ('1')
+	//alert (camp_combo_val)
 	if (camp_combo_val == true ){
 		if (campaign_doc_str.indexOf(pid)==-1){
 			if (campaign_doc_str==''){
 				campaign_doc_str=pid
 				productOrderShowStr=pname
+				campaign_doc_str=pid+'<fd>'+pname
 			}else{
 				campaign_doc_str=campaign_doc_str+'<rd>'+pid+'<fd>'+pname
 			}	
@@ -1057,6 +1064,7 @@ function getDocCampaignData_keyup(product_id){
 		
 	}
 		
+		//alert (localStorage.campaign_doc_str)
 	}
 
 	
@@ -1104,7 +1112,7 @@ function prescription_submit(){
 				var medicine_5=$("#medicine_5").val();
 				
 				// $("#error_prescription_submit").html(localStorage.base_url+'prescription_submit?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+encodeURIComponent(localStorage.user_pass)+'&synccode='+localStorage.synccode+'&doctor_id='+encodeURIComponent(doctorId)+'&doctor_name='+encodeURIComponent(doctor_name)+'&medicine_1='+encodeURIComponent(medicine_1)+'&medicine_2='+encodeURIComponent(medicine_2)+'&medicine_3='+encodeURIComponent(medicine_3)+'&medicine_4='+encodeURIComponent(medicine_4)+'&medicine_5='+encodeURIComponent(medicine_5)+'&latitude='+latitude+'&longitude='+longitude+'&pres_photo='+imageName+'&campaign_doc_str='+localStorage.campaign_doc_str)							
-				alert (localStorage.campaign_doc_str)
+				//alert (localStorage.campaign_doc_str)
 				$.ajax({
 					 type: 'POST',
 					 url: localStorage.base_url+'prescription_submit?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+encodeURIComponent(localStorage.user_pass)+'&synccode='+localStorage.synccode+'&doctor_id='+encodeURIComponent(doctorId)+'&doctor_name='+encodeURIComponent(doctor_name)+'&medicine_1='+encodeURIComponent(medicine_1)+'&medicine_2='+encodeURIComponent(medicine_2)+'&medicine_3='+encodeURIComponent(medicine_3)+'&medicine_4='+encodeURIComponent(medicine_4)+'&medicine_5='+encodeURIComponent(medicine_5)+'&latitude='+latitude+'&longitude='+longitude+'&pres_photo='+imageName+'&campaign_doc_str='+localStorage.campaign_doc_str,
@@ -1137,6 +1145,7 @@ function prescription_submit(){
 									$("#medicine_3").val("");
 									$("#medicine_4").val("");
 									$("#medicine_5").val("");
+									localStorage.campaign_doc_str=''
 									
 									$("#lat").val("");
 									$("#long").val("");
