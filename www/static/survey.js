@@ -1014,7 +1014,7 @@ function getDocCampaignData_keyup(product_id){
 							campaign_doc_str=pid
 							//productOrderShowStr=pname+'('+pqty+')'
 						}else{
-							campaign_doc_str=campaign_doc_str+'<rd>'+campaign_docProductId
+							campaign_doc_str=campaign_doc_str+'<rd>'+pid+'<fd>'+pname
 							//productOrderShowStr=productOrderShowStr+', '+pname+'('+orderProductQty+')'
 							}		
 					}
