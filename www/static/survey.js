@@ -1099,13 +1099,13 @@ function prescription_submit(){
 			var now = $.now();
 			var imageName=localStorage.user_id+'_'+now.toString()+'.jpg';
 			
-			if (latitude=='' || latitude==0 || longitude=='' || longitude==0){
-				$("#error_prescription_submit").html('Location not Confirmed');	
-				$("#wait_image_prescription").show();	
-			}else{
+			//if (latitude=='' || latitude==0 || longitude=='' || longitude==0){
+//				$("#error_prescription_submit").html('Location not Confirmed');	
+//				$("#wait_image_prescription").show();	
+//			}else{
 								
 				$("#wait_image_prescription").show();
-				$("#btn_prescription_submit").hide();
+			//	$("#btn_prescription_submit").show();
 				
 				var medicine_1=$("#medicine_1").val();
 				var medicine_2=$("#medicine_2").val();
@@ -1179,7 +1179,7 @@ function prescription_submit(){
 						  $("#btn_prescription_submit").show();
 					  }
 					  });//end ajax
-				}
+				//}
 			}
 		
 		}
@@ -1666,7 +1666,7 @@ $.mobile.document
 
 function takePictureNext(){	
 	$("#error_home_page").html("");
-	$("#btn_prescription_submit").hide();
+	$("#btn_prescription_submit").show();
 	
 	var pres_photo=$("#prescriptionPhoto").val();
 	
