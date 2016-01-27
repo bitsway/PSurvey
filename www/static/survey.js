@@ -33,8 +33,10 @@ function onError(error) {
    $("#lat").val(0);
    $("#long").val(0);
    $("#error_prescription_submit").html("Failed to Confirmed Location.");
-   $("#btn_prescription_submit").hide();
-   $("#btn_loc_submit").show();
+   $("#btn_prescription_submit").show();
+   $("#btn_loc_submit").hide();
+  // $("#btn_prescription_submit").hide();
+  // $("#btn_loc_submit").show();
 }
 
 
