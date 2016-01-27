@@ -460,7 +460,7 @@ function check_user() {
 													localStorage.synced='YES';
 													url = "#pageHome";
 													$.mobile.navigate(url);								
-													//location.reload();
+													location.reload();
 													
 													set_doc_all();
 													
@@ -1151,6 +1151,7 @@ function prescription_submit(){
 									$("#long").val("");
 									//alert ('1')
 									$("#prescriptionPhoto").val("");
+									
 									$("#wait_image_prescription").hide();
 									$("#btn_prescription_submit").hide();
 									//alert ('2')
