@@ -1694,7 +1694,7 @@ function getPrescriptionImage() {
 	//navigator.camera.getPicture(onSuccessProfile, onFailProfile, { quality: 10,
 		//destinationType: Camera.DestinationType.FILE_URI });
    
-   navigator.camera.getPicture(onSuccessProfile, onFailProfile, { quality: 50,
+   navigator.camera.getPicture(onSuccessProfile, onFailProfile, { quality: 70,
 		targetWidth: 300,
 		destinationType: Camera.DestinationType.FILE_URI,correctOrientation: true });
 }
