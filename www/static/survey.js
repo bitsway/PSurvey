@@ -169,11 +169,11 @@ function check_user() {
 	//Main
 
 	
-	//var  apipath_base_photo_dm='http://eapps001.cloudapp.net/mrepacme/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
-//	var  apipath_base_photo_dm='http://127.0.0.1:8000/mrepbiopharma/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
+	//var  apipath_base_photo_dm='http://c003.cloudapp.net/mrepacme/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
+	var  apipath_base_photo_dm='http://127.0.0.1:8000/mrepbiopharma/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
 	
 	
-  var apipath_base_photo_dm ='http://e2.businesssolutionapps.com/welcome/dmpath_prescription/get_path?CID='+cid +'&HTTPPASS=e99business321cba';
+  //var apipath_base_photo_dm ='http://e2.businesssolutionapps.com/welcome/dmpath_prescription/get_path?CID='+cid +'&HTTPPASS=e99business321cba';
 	
 	
 	var user_id=$("#user_id").val();
@@ -329,7 +329,7 @@ function check_user() {
 							localStorage.user_pass=user_pass;   		
 							localStorage.synced='NO'
 							
-						//	$("#error_login").html(localStorage.base_url+'check_user?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode);
+							$("#error_login").html(localStorage.base_url+'check_user?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode);
 						//	http://127.0.0.1:8000/lscmreporting/syncmobile/check_user?cid=LSCRM&rep_id=1001&rep_pass=123&synccode=
 							
 							$.ajax({
@@ -1075,13 +1075,14 @@ function getDocCampaignData_keyup(product_id){
 
 
 function prescription_submit(){
+	//alert (localStorage.visit_market_show=market_name)
 	$("#error_prescription_submit").html("")		
 	$("#wait_image_prescription").hide();
 	
 	var doctorId=localStorage.visit_client.split('|')[1]	
-	
-	
 	var doctor_name=localStorage.visit_client.split('|')[0]
+	
+	var areaId=localStorage.visit_market_show.split('|')[1]
 	
 	if (doctor_name==''){		
 		$("#error_prescription_submit").text("Required Doctor");
@@ -1093,7 +1094,7 @@ function prescription_submit(){
 		
 		var prescriptionPhoto=$("#prescriptionPhoto").val();
 		//var prescriptionPhoto='aa';
-		
+		//prescriptionPhoto='dasdfadf'
 		if (prescriptionPhoto==''){
 			$("#error_prescription_submit").html('Required picture');
 			$("#wait_image_prescription").show();
@@ -1115,11 +1116,11 @@ function prescription_submit(){
 				var medicine_4=$("#medicine_4").val();
 				var medicine_5=$("#medicine_5").val();
 				
-				// $("#error_prescription_submit").html(localStorage.base_url+'prescription_submit?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+encodeURIComponent(localStorage.user_pass)+'&synccode='+localStorage.synccode+'&doctor_id='+encodeURIComponent(doctorId)+'&doctor_name='+encodeURIComponent(doctor_name)+'&medicine_1='+encodeURIComponent(medicine_1)+'&medicine_2='+encodeURIComponent(medicine_2)+'&medicine_3='+encodeURIComponent(medicine_3)+'&medicine_4='+encodeURIComponent(medicine_4)+'&medicine_5='+encodeURIComponent(medicine_5)+'&latitude='+latitude+'&longitude='+longitude+'&pres_photo='+imageName+'&campaign_doc_str='+localStorage.campaign_doc_str)							
+				//$("#error_prescription_submit").text(localStorage.base_url+'prescription_submit?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+encodeURIComponent(localStorage.user_pass)+'&synccode='+localStorage.synccode+'&areaId='+areaId+'&doctor_id='+encodeURIComponent(doctorId)+'&doctor_name='+encodeURIComponent(doctor_name)+'&medicine_1='+encodeURIComponent(medicine_1)+'&medicine_2='+encodeURIComponent(medicine_2)+'&medicine_3='+encodeURIComponent(medicine_3)+'&medicine_4='+encodeURIComponent(medicine_4)+'&medicine_5='+encodeURIComponent(medicine_5)+'&latitude='+latitude+'&longitude='+longitude+'&pres_photo='+imageName+'&campaign_doc_str='+localStorage.campaign_doc_str+'&version=1')							
 				//alert (localStorage.campaign_doc_str)
 				$.ajax({
 					 type: 'POST',
-					 url: localStorage.base_url+'prescription_submit?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+encodeURIComponent(localStorage.user_pass)+'&synccode='+localStorage.synccode+'&doctor_id='+encodeURIComponent(doctorId)+'&doctor_name='+encodeURIComponent(doctor_name)+'&medicine_1='+encodeURIComponent(medicine_1)+'&medicine_2='+encodeURIComponent(medicine_2)+'&medicine_3='+encodeURIComponent(medicine_3)+'&medicine_4='+encodeURIComponent(medicine_4)+'&medicine_5='+encodeURIComponent(medicine_5)+'&latitude='+latitude+'&longitude='+longitude+'&pres_photo='+imageName+'&campaign_doc_str='+localStorage.campaign_doc_str,
+					 url: localStorage.base_url+'prescription_submit?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+encodeURIComponent(localStorage.user_pass)+'&synccode='+localStorage.synccode+'&areaId='+areaId+'&doctor_id='+encodeURIComponent(doctorId)+'&doctor_name='+encodeURIComponent(doctor_name)+'&medicine_1='+encodeURIComponent(medicine_1)+'&medicine_2='+encodeURIComponent(medicine_2)+'&medicine_3='+encodeURIComponent(medicine_3)+'&medicine_4='+encodeURIComponent(medicine_4)+'&medicine_5='+encodeURIComponent(medicine_5)+'&latitude='+latitude+'&longitude='+longitude+'&pres_photo='+imageName+'&campaign_doc_str='+localStorage.campaign_doc_str +'&version=1',
 					 success: function(result) {	
 					 					
 							if (result==''){
