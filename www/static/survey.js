@@ -1702,6 +1702,7 @@ function getPrescriptionImage() {
    navigator.camera.getPicture(onSuccessProfile, onFailProfile, { quality: 90,
 		targetWidth: 400,
 		destinationType: Camera.DestinationType.FILE_URI,correctOrientation: true });
+		
 }
 function onSuccessProfile(imageURI) {
     var image = document.getElementById('myImagePrescription');
