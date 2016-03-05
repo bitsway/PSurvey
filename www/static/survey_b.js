@@ -390,33 +390,8 @@ function check_user() {
 													
 												//	var product_tbl_doc_campaign='<ul id="campaign_combo_id_lv" data-role="listview"  data-filter="true" data-input="#campaign_combo_id" data-inset="true" data-filter-reveal="true" > ';
 												
-											//	var product_tbl_doc_campaign='<ul id="campaign_combo_id_lv" data-role="listview"  data-filter="true" data-input="#campaign_combo_id" > ';
-													var product_tbl_doc_campaign_a=''
-													var product_tbl_doc_campaign_b=''
-													var product_tbl_doc_campaign_c=''
-													var product_tbl_doc_campaign_d=''
-													var product_tbl_doc_campaign_e=''
-													var product_tbl_doc_campaign_f=''
-													var product_tbl_doc_campaign_g=''
-													var product_tbl_doc_campaign_h=''
-													var product_tbl_doc_campaign_i=''
-													var product_tbl_doc_campaign_j=''
-													var product_tbl_doc_campaign_k=''
-													var product_tbl_doc_campaign_l=''
-													var product_tbl_doc_campaign_m=''
-													var product_tbl_doc_campaign_n=''
-													var product_tbl_doc_campaign_o=''
-													var product_tbl_doc_campaign_p=''
-													var product_tbl_doc_campaign_q=''
-													var product_tbl_doc_campaign_r=''
-													var product_tbl_doc_campaign_s=''
-													var product_tbl_doc_campaign_t=''
-													var product_tbl_doc_campaign_u=''
-													var product_tbl_doc_campaign_v=''
-													var product_tbl_doc_campaign_w=''
-													var product_tbl_doc_campaign_x=''
-													var product_tbl_doc_campaign_y=''
-													var product_tbl_doc_campaign_z=''
+												var product_tbl_doc_campaign='<ul id="campaign_combo_id_lv" data-role="listview"  data-filter="true" data-input="#campaign_combo_id" > ';
+													
 
 													for (j=0; j < productLength; j++){
 														var productArray2 = productList[j].split('<fd>');
@@ -428,84 +403,9 @@ function check_user() {
 
 
 														
-														if (product_name2.indexOf("A")==0){
-															product_tbl_doc_campaign_a=product_tbl_doc_campaign_a+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("B")==0){
-															product_tbl_doc_campaign_b=product_tbl_doc_campaign_b+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("C")==0){
-															product_tbl_doc_campaign_c=product_tbl_doc_campaign_c+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("D")==0){
-															product_tbl_doc_campaign_d=product_tbl_doc_campaign_d+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("E")==0){
-															product_tbl_doc_campaign_e=product_tbl_doc_campaign_e+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("F")==0){
-															product_tbl_doc_campaign_f=product_tbl_doc_campaign_f+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("G")==0){
-															product_tbl_doc_campaign_g=product_tbl_doc_campaign_g+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("H")==0){
-															product_tbl_doc_campaign_h=product_tbl_doc_campaign_h+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("I")==0){
-															product_tbl_doc_campaign_i=product_tbl_doc_campaign_i+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("J")==0){
-															product_tbl_doc_campaign_j=product_tbl_doc_campaign_j+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("K")==0){
-															product_tbl_doc_campaign_k=product_tbl_doc_campaign_k+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("L")==0){
-															product_tbl_doc_campaign_l=product_tbl_doc_campaign_l+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("M")==0){
-															product_tbl_doc_campaign_m=product_tbl_doc_campaign_m+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("N")==0){
-															product_tbl_doc_campaign_n=product_tbl_doc_campaign_n+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("O")==0){
-															product_tbl_doc_campaign_o=product_tbl_doc_campaign_o+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("P")==0){
-															product_tbl_doc_campaign_p=product_tbl_doc_campaign_p+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("Q")==0){
-															product_tbl_doc_campaign_q=product_tbl_doc_campaign_q+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("R")==0){
-															product_tbl_doc_campaign_r=product_tbl_doc_campaign_r+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("S")==0){
-															product_tbl_doc_campaign_s=product_tbl_doc_campaign_s+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("T")==0){
-															product_tbl_doc_campaign_t=product_tbl_doc_campaign_t+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("U")==0){
-															product_tbl_doc_campaign_u=product_tbl_doc_campaign_u+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("V")==0){
-															product_tbl_doc_campaign_v=product_tbl_doc_campaign_v+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("W")==0){
-															product_tbl_doc_campaign_w=product_tbl_doc_campaign_w+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("X")==0){
-															product_tbl_doc_campaign_x=product_tbl_doc_campaign_x+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("Y")==0){
-															product_tbl_doc_campaign_y=product_tbl_doc_campaign_y+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
-														if (product_name2.indexOf("Z")==0){
-															product_tbl_doc_campaign_z=product_tbl_doc_campaign_z+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
-														}
+														
+														product_tbl_doc_campaign=product_tbl_doc_campaign+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin">'+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'<font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
+
 														$("#error_login").html('Processing Product List....');	
 														//-------------Sample----------
 													
@@ -513,37 +413,11 @@ function check_user() {
 													
 													}
 													
-													//product_tbl_doc_campaign=product_tbl_doc_campaign+'</ul>';//+'</table>'	//+'</ul>';						
-											localStorage.product_tbl_doc_campaign_a=product_tbl_doc_campaign_a;
-											localStorage.product_tbl_doc_campaign_b=product_tbl_doc_campaign_b;
-											localStorage.product_tbl_doc_campaign_c=product_tbl_doc_campaign_c;
-											localStorage.product_tbl_doc_campaign_d=product_tbl_doc_campaign_d;
-											localStorage.product_tbl_doc_campaign_e=product_tbl_doc_campaign_e;
-											localStorage.product_tbl_doc_campaign_f=product_tbl_doc_campaign_f;
-											localStorage.product_tbl_doc_campaign_g=product_tbl_doc_campaign_g;
-											localStorage.product_tbl_doc_campaign_h=product_tbl_doc_campaign_h;
-											localStorage.product_tbl_doc_campaign_i=product_tbl_doc_campaign_i;
-											localStorage.product_tbl_doc_campaign_j=product_tbl_doc_campaign_j;
-											localStorage.product_tbl_doc_campaign_k=product_tbl_doc_campaign_k;
-											localStorage.product_tbl_doc_campaign_l=product_tbl_doc_campaign_l;
-											localStorage.product_tbl_doc_campaign_m=product_tbl_doc_campaign_m;
-											localStorage.product_tbl_doc_campaign_n=product_tbl_doc_campaign_n;
-											localStorage.product_tbl_doc_campaign_o=product_tbl_doc_campaign_o;
-											localStorage.product_tbl_doc_campaign_p=product_tbl_doc_campaign_p;
-											localStorage.product_tbl_doc_campaign_q=product_tbl_doc_campaign_q;
-											localStorage.product_tbl_doc_campaign_r=product_tbl_doc_campaign_r;
-											localStorage.product_tbl_doc_campaign_s=product_tbl_doc_campaign_s;
-											localStorage.product_tbl_doc_campaign_t=product_tbl_doc_campaign_t;
-											localStorage.product_tbl_doc_campaign_u=product_tbl_doc_campaign_u;
-											localStorage.product_tbl_doc_campaign_v=product_tbl_doc_campaign_v;
-											localStorage.product_tbl_doc_campaign_w=product_tbl_doc_campaign_w;
-											localStorage.product_tbl_doc_campaign_x=product_tbl_doc_campaign_x;
-											localStorage.product_tbl_doc_campaign_y=product_tbl_doc_campaign_y;
-											localStorage.product_tbl_doc_campaign_z=product_tbl_doc_campaign_z;
-											
-																//$("#doctor_campaign_list_tbl").html(localStorage.product_tbl_str_doc_campaign);
+													product_tbl_doc_campaign=product_tbl_doc_campaign+'</ul>';//+'</table>'	//+'</ul>';						
+													localStorage.product_tbl_str_doc_campaign=product_tbl_doc_campaign;
+													$("#doctor_campaign_list_tbl").html(localStorage.product_tbl_str_doc_campaign);
 
-											//		$('#campaign_combo_id_lv').listview();
+													$('#campaign_combo_id_lv').listview();
 													
 												
 													
@@ -1049,259 +923,16 @@ function marketRetailerNext_doc() {
 
 		var url = "#page_doctor_campaign";
 		$.mobile.navigate(url);
-		//$("campaign_combo_id_lv").empty()
-		//$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_a);	
-		//location.reload();
-		localStorage.flag_a=0
-		localStorage.flag_b=0
-		localStorage.flag_c=0
-		localStorage.flag_d=0
-		localStorage.flag_e=0
-		localStorage.flag_f=0
-		localStorage.flag_g=0
-		localStorage.flag_h=0
-		localStorage.flag_i=0
-		localStorage.flag_j=0			
-		localStorage.flag_k=0
-		localStorage.flag_l=0
-		localStorage.flag_m=0
-		localStorage.flag_n=0
-		localStorage.flag_o=0
-		localStorage.flag_p=0
-		localStorage.flag_q=0
-		localStorage.flag_r=0
-		localStorage.flag_s=0
-		localStorage.flag_t=0
-		localStorage.flag_u=0
-		localStorage.flag_v=0
-		localStorage.flag_w=0
-		localStorage.flag_x=0
-		localStorage.flag_y=0
-		localStorage.flag_z=0
 		
+		//location.reload();
+							
 			
 	
 	}
 }
 //=========================
 
-function new_list(){
-	var list_alphabet=$("#campaign_combo_id").val().toUpperCase();
-	//alert (list_alphabet.length)
-	
-	if (list_alphabet.length==1){
-		
-		if (list_alphabet=='A'){
-				//$("#campaign_combo_id_lv").empty()
-				if (localStorage.flag_a==0){
-					localStorage.flag_a=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_a);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='B'){
-				//$("#campaign_combo_id_lv").empty()
-				if (localStorage.flag_b==0){
-					localStorage.flag_b=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_b);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='C'){
-				//$("#campaign_combo_id_lv").empty()
-				if (localStorage.flag_c==0){
-					localStorage.flag_c=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_c);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='D'){
-				//$("#campaign_combo_id_lv").empty()
-				if (localStorage.flag_d==0){
-					localStorage.flag_d=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_d);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='E'){
-				//$("#campaign_combo_id_lv").empty()
-				if (localStorage.flag_e==0){
-					localStorage.flag_e=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_e);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='F'){
-				//$("#campaign_combo_id_lv").empty()
-				if (localStorage.flag_f==0){
-					localStorage.flag_f=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_f);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='G'){
-				//$("#campaign_combo_id_lv").empty()
-				if (localStorage.flag_g==0){
-					localStorage.flag_g=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_g);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='H'){
-				//$("#campaign_combo_id_lv").empty()
-				if (localStorage.flag_h==0){
-					localStorage.flag_h=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_h);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='I'){
-				//$("#campaign_combo_id_lv").empty()
-				if (localStorage.flag_i==0){
-					localStorage.flag_i=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_i);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='J'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_j==0){
-					localStorage.flag_j=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_j);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='K'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_k==0){
-					localStorage.flag_k=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_k);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='L'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_l==0){
-					localStorage.flag_l=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_l);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='M'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_m==0){
-					localStorage.flag_m=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_m);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='N'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_n==0){
-					localStorage.flag_n=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_n);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='O'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_o==0){
-					localStorage.flag_o=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_o);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='P'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_p==0){
-					localStorage.flag_p=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_p);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='Q'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_q==0){
-					localStorage.flag_q=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_q);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='R'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_r==0){
-					localStorage.flag_r=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_r);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='S'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_s==0){
-					localStorage.flag_s=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_s);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='T'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_t==0){
-					localStorage.flag_t=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_t);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='U'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_u==0){
-					localStorage.flag_u=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_u);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='V'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_v==0){
-					localStorage.flag_v=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_v);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='W'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_w==0){
-					localStorage.flag_w=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_w);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='X'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_x==0){
-					localStorage.flag_x=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_x);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='Y'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_y==0){
-					localStorage.flag_y=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_y);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-		else if (list_alphabet=='Z'){
-				//$("campaign_combo_id_lv").empty()
-				if (localStorage.flag_z==0){
-					localStorage.flag_z=1
-					$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign_z);
-				}
-				//$("#campaign_combo_id_lv").listview('refresh');
-		}
-	}
-}
-//==================================
+
 function getCampaign(){
 	localStorage.campaign=1;
 
@@ -1714,8 +1345,8 @@ $(document).ready(function(){
 	first_page();
 	
 	//set doctor
-	//$('#doctor_campaign_list_tbl').html(localStorage.product_tbl_str_doc_campaign);
-//	$('#campaign_combo_id_lv').listview();
+	$('#doctor_campaign_list_tbl').html(localStorage.product_tbl_str_doc_campaign);
+	$('#campaign_combo_id_lv').listview();
 	
 	clear_mgs();
 
