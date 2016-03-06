@@ -170,7 +170,7 @@ function check_user() {
 
 	
 	//var  apipath_base_photo_dm='http://c003.cloudapp.net/mrepacme/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
-//	var  apipath_base_photo_dm='http://127.0.0.1:8000/mrepbiopharma/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
+	//var  apipath_base_photo_dm='http://127.0.0.1:8000/mrepbiopharma/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
 	
 	
   var apipath_base_photo_dm ='http://e2.businesssolutionapps.com/welcome/dmpath_prescription/get_path?CID='+cid +'&HTTPPASS=e99business321cba';
@@ -660,133 +660,10 @@ function addMarketList() {
 function marketNextLV(lvalue) {
 	
 	$("#unschedule_market_combo_id").val(lvalue);
-	if (localStorage.doctor_flag==1){
-		marketNext_doc();
-	}
-	else{
-		if (localStorage.user_type=='rep'){
-			marketNext();	
-		}
-		else{
-			
-			marketNext_sup();	
-		}
-	}	
+	marketNext_doc();
+	
 }
 
-function marketNext() {
-	$("#unscheduled_m_client_combo_id").val('');
-	
-	market_name=$("#unschedule_market_combo_id").val();
-	
-	if(market_name=='' || market_name==0){
-			$("#err_market_next").text("Market required");
-		}else{
-			$("#err_market_next").text("");			
-			$("#btn_unschedule_market").hide();
-			$("#wait_image_unschedule_market").show();		
-			
-			//visitMarketStr
-			localStorage.visit_market_show=market_name
-			var market_Id=market_name.split('|')[1];
-			
-			
-			var catType=$("#catCombo").val();
-			
-			//===========================Get market client list Start============================
-			market_list=localStorage.market_client;
-
-			if (market_list.indexOf(market_Id)==-1){
-					$("#err_market_next").text("Sorry Network not available");	
-					$("#wait_image_unschedule_market").hide();		
-					$("#btn_unschedule_market").show();
-			}else{					
-					var resultArray_0 = market_list.split('<'+market_Id+'>');	
-					var resultArray_1 = resultArray_0[1].split('</'+market_Id+'>');	
-					var m_client_string = resultArray_1[0];	
-					//var resultArray = market_list.split('</'+market_Id+'>');			
-//					m_client_string=resultArray[0].replace('<'+market_Id+'>','');
-														
-					if 	(m_client_string=='Retailer not available'){
-						$("#err_market_next").text("Retailer not available");	
-						$("#wait_image_unschedule_market").hide();		
-						$("#btn_unschedule_market").show();
-						
-					}
-					else{
-						//----------------
-						
-						var visit_type="Unscheduled";
-						var scheduled_date="";
-						
-						//-----------------------------------
-									
-						var mClientList = m_client_string.split('<rd>');
-						var mClientListShowLength=mClientList.length	;
-						
-						//var unscheduled_m_client_list='<option value="0" > Select Retailer</option>'
-						var unscheduled_m_client_list='';
-						for ( i=0; i < mClientListShowLength; i++){
-							var mClientValueArray = mClientList[i].split('<fd>');
-							var mClientID=mClientValueArray[0];
-							var mClientName=mClientValueArray[1];
-							var mClientCat=mClientValueArray[2];
-							//alert (catType);
-							
-							if(mClientID!=''){
-								if (catType!=''){
-									if (catType==mClientCat){
-										unscheduled_m_client_list+='<li class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location" style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin"><a  onClick="marketRetailerNextLV(\''+mClientName+'|'+mClientID+'\')"><font style="font-size:12px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+mClientName+'|'+mClientID+','+mClientCat+'</font></a></li>';
-										
-										
-										
-									}
-	
-								}
-								else{
-									unscheduled_m_client_list+='<li class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location" style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin"><a  onClick="marketRetailerNextLV(\''+mClientName+'|'+mClientID+'\')"><font style="font-size:12px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+mClientName+'|'+mClientID+','+mClientCat+'</font></a></li>';
-									
-
-								}	
-							}
-						 }
-					
-					
-					//var unscheduled_m_client_combo_ob=$('#unscheduled_m_client_combo_id');
-		
-					
-					var unscheduled_m_client_combo_ob=$('#unscheduled_m_client_combo_id_lv');
-					
-					
-					
-					unscheduled_m_client_combo_ob.empty();
-					unscheduled_m_client_combo_ob.append(unscheduled_m_client_list);
-													
-					$(".market").html(market_name);								
-					$(".visit_type").html(visit_type);								
-					$(".s_date").html(scheduled_date);
-					
-					localStorage.visit_type=visit_type;
-					//localStorage.scheduled_date=scheduled_date
-					
-					//-----------------------------------
-					$("#err_market_next").text("");
-					$("#wait_image_unschedule_market").hide();		
-					$("#btn_unschedule_market").show();
-					
-					//------- 
-					
-					
-					
-					
-					url = "#page_market_ret";	
-					$.mobile.navigate(url);
-					unscheduled_m_client_combo_ob.listview("refresh");
-				}
-			}//end else
-			//============================Get market client list end===============================
-		}			
-}
 
 
 
@@ -795,59 +672,14 @@ function marketNext() {
 //--------------------------------- Unsheduled visit: retailer next
 function marketRetailerNextLV(lvalue) {
 	$("#unscheduled_m_client_combo_id").val(lvalue);
-	//alert(lvalue);
-	if(localStorage.doctor_flag==1){
 		marketRetailerNext_doc();
-		
-		localStorage.campaign_doc_str=''
-		//alert (localStorage.campaign_doc_str)
-	}
-	else{
-		marketRetailerNext();	
 		localStorage.campaign_doc_str=''
 	}
-		
-	}
 
-function marketRetailerNext() {
-	$("#err_m_retailer_next").text("");
-	var visit_client=$("#unscheduled_m_client_combo_id").val();		
-	
-	if(visit_client=='' || visit_client==0){
-			$("#err_m_retailer_next").text("Retailer required");
-		}else{
-			$("#btn_unschedule_market_ret").hide();
-			$("#wait_image_unschedule_market_ret").show();		
-			visitClientId_list=visit_client.split('|');
-			var visitClientId=visit_client.replace(visitClientId_list[0]+"|","");
-			
-			var visitClientID=visit_client.split('|')[1];
 
-			
-			$(".visit_client").html(visit_client);
-				
-			localStorage.visit_client_show=visit_client
-			localStorage.visit_client=visit_client.split('|')[1]
-			
-			localStorage.visit_page="YES"
-			
-			//--------
-			$("#err_m_retailer_next").text("");
-			$("#wait_image_unschedule_market_ret").hide();		
-			$("#btn_unschedule_market_ret").show();
-
-			url = "#page_visit";
-			$.mobile.navigate(url);
-								
-			
-		}
-}
 
 
 function replace_special_char(string_value){
-	//var chemist_feedback=$("#chemist_feedback").val();
-	//var doc_feedback=$("#doc_feedback").val();
-	//chemist_feedback=chemist_feedback.replace(')','').replace('(','').replace('{','').replace('}','').replace('[','').replace(']','').replace('"','').replace("'","").replace("/'","").replace("\'","").replace('>','').replace('<','');
 	var real_value=string_value.replace(')','').replace('(','').replace('{','').replace('}','').replace('[','').replace(']','').replace('"','').replace("'","").replace("/'","").replace("\'","").replace('>','').replace('<','');
 	return real_value;
 }
@@ -940,8 +772,6 @@ function marketNext_doc() {
 						
 					}
 					else{
-					
-						
 						var mClientList = doc_result.split('<rd>');
 						var mClientListShowLength=mClientList.length	
 						
@@ -954,7 +784,6 @@ function marketNext_doc() {
 							var mClientName=mClientValueArray[1];
 							//alert (mClientID)
 							if(mClientID!=''){
-	
 								unscheduled_m_client_list+='<li class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location" style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin"><a onClick="marketRetailerNextLV(\''+mClientName+'|'+mClientID+'\')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+mClientName+'|'+mClientID+'</a></li>';
 								}								
 						}
@@ -1023,26 +852,16 @@ function marketRetailerNext_doc() {
 			localStorage.sample_show_1='';
 			localStorage.ppm_show_1='';
 			
-			//alert (localStorage.productGiftStr='');
-//			alert (localStorage.gift_show_1);
+
 //			==========================
-
-		
-		
 		set_doc_all();
-		
-
 //			===============================
 		}
-		
-			
 		localStorage.visit_client=visit_client
-
 		localStorage.visit_page="YES"
 		
 		//--------
 		$("#wait_image_unschedule_market_ret").hide();		
-		
 		$("#unscheduled_m_client_combo_id_lv").show();
 		$("#wait_image_ret").hide();
 		
@@ -1086,9 +905,7 @@ function marketRetailerNext_doc() {
 //=========================
 
 function new_list(){
-	var list_alphabet=$("#campaign_combo_id").val().toUpperCase();
-	//alert (list_alphabet.length)
-	
+	var list_alphabet=$("#campaign_combo_id").val().toUpperCase();	
 	if (list_alphabet.length==1){
 		
 		if (list_alphabet=='A'){
@@ -1405,7 +1222,6 @@ function getDocCampaignData_keyup(product_id){
 		
 	}
 	else{
-		//alert ('3')
 		campaign_doc_strList=localStorage.campaign_doc_str.split('<rd>');
 		campaign_doc_strListLength=campaign_doc_strList.length;
 		
@@ -1426,25 +1242,17 @@ function getDocCampaignData_keyup(product_id){
 							campaign_doc_str=campaign_doc_str.replace(campaign_doc_strList[j], "")
 						
 					}
-					
-					
-					
-				
 			}
 		}
-		//alert (localStorage.campaign_doc_str)
 		localStorage.campaign_doc_str=campaign_doc_str;
 		
 	}
-		
-		//alert (localStorage.campaign_doc_str)
 	}
 
 	
 
 
 function prescription_submit(){
-	//alert (localStorage.visit_market_show=market_name)
 	$("#error_prescription_submit").html("")		
 	$("#wait_image_prescription").hide();
 	
@@ -1561,15 +1369,10 @@ function prescription_submit(){
 //======================Doctor End==============
 function clear_mgs(){
 	$("#error_login").html('');
-	
 	$("#error_home_page").html('');	
-	
 	$("#err_market_next").html('');
-	
 	$("#err_m_retailer_next").html('');
-	
 	$("#myerror_doctor_campaign").html('');
-	
 	$("#error_prescription_submit").html('');
 
 	
@@ -1582,23 +1385,19 @@ function new_ps(){
 	
 }
 
-
-
-
-
 //=========================Menu functions Start=================
 
 
 
-function doctor_visit() {
-	$("#ret_cat").hide();
-	$("#d_visit").html("Doctors");
-	$("#v_path").html('<font style="font-weight:bold; font-size:13px; color:#666">Visit - Market - Doctor</font>');
-	localStorage.doctor_flag=1;
-	localStorage.visit_page="NO";
-	addMarketList();
-	
-}
+//function doctor_visit() {
+//	$("#ret_cat").hide();
+//	$("#d_visit").html("Doctors");
+//	$("#v_path").html('<font style="font-weight:bold; font-size:13px; color:#666">Visit - Market - Doctor</font>');
+//	localStorage.doctor_flag=1;
+//	localStorage.visit_page="NO";
+//	addMarketList();
+//	
+//}
 
 
 
@@ -1679,18 +1478,11 @@ function startsWithSearch_ret( idx, searchValue ) {
 
 $(document).ready(function(){
 	
-
-		
-										
-											
 	$("#wait_image_login").hide();
 	$("#loginButton").show();
 	
 	$("#wait_image_prescription").hide();
-	
-	
-	
-	
+
 	$("#wait_image_schedule_ret").hide();		
 	$("#btn_schedule_ret").show();
 	
@@ -1713,267 +1505,14 @@ $(document).ready(function(){
 	
 	first_page();
 	
-	//set doctor
-	//$('#doctor_campaign_list_tbl').html(localStorage.product_tbl_str_doc_campaign);
-//	$('#campaign_combo_id_lv').listview();
+
 	
 	clear_mgs();
 
 });
 
-//  ============== Schedule Client Combo===========
-$.mobile.document.on( "listviewcreate", "#schedule_client_combo_id-menu", function( e ) {
-	var input,
-		listbox = $( "#schedule_client_combo_id-listbox" ),
-		form = listbox.jqmData( "filter-form" ),
-		listview = $( e.target );
-	if ( !form ) {
-		input = $( "<input id='clientSearch' data-type='search'></input>" );
-		form = $( "<form></form>" ).append( input );
-		input.textinput();
-		$( "#schedule_client_combo_id-listbox" )
-			.prepend( form )
-			.jqmData( "filter-form", form );
-	}
-	listview.filterable({ input: input });
-})
-.on( "pagebeforeshow pagehide", "#schedule_client_combo_id-dialog", function( e ) {
-	var form = $( "#schedule_client_combo_id-listbox" ).jqmData( "filter-form" ),
-		placeInDialog = ( e.type === "pagebeforeshow" ),
-		destination = placeInDialog ? $( e.target ).find( ".ui-content" ) : $( "#schedule_client_combo_id-listbox" );
-	form
-		.find( "input" )
-		.textinput( "option", "inset", !placeInDialog )
-		.end()
-		.prependTo( destination );
-});
 
 
-//------------------------------------- Unschedule market combo -----------------------------
-
-$.mobile.document.on( "listviewcreate", "#unschedule_market_combo_id-menu", function( e ) {
-	var input,
-		listbox = $( "#unschedule_market_combo_id-listbox" ),
-		form = listbox.jqmData( "filter-form" ),
-		listview = $( e.target );
-	if ( !form ) {
-		input = $( "<input id='clientSearch' data-type='search'></input>" );
-		form = $( "<form></form>" ).append( input );
-		input.textinput();
-		$( "#unschedule_market_combo_id-listbox" )
-			.prepend( form )
-			.jqmData( "filter-form", form );
-	}
-	listview.filterable({ input: input });
-})
-.on( "pagebeforeshow pagehide", "#unschedule_market_combo_id-dialog", function( e ) {
-	var form = $( "#unschedule_market_combo_id-listbox" ).jqmData( "filter-form" ),
-		placeInDialog = ( e.type === "pagebeforeshow" ),
-		destination = placeInDialog ? $( e.target ).find( ".ui-content" ) : $( "#unschedule_market_combo_id-listbox" );
-	form
-		.find( "input" )
-		.textinput( "option", "inset", !placeInDialog )
-		.end()
-		.prependTo( destination );
-});	
-
-//-----------------  Unschedule Market Client/retailer list
-$.mobile.document.on( "listviewcreate", "#unscheduled_m_client_combo_id-menu", function( e ) {
-	var input,
-		listbox = $( "#unscheduled_m_client_combo_id-listbox" ),
-		form = listbox.jqmData( "filter-form" ),
-		listview = $( e.target );
-	if ( !form ) {
-		input = $( "<input id='clientSearch' data-type='search'></input>" );
-		form = $( "<form></form>" ).append( input );
-		input.textinput();
-		$( "#unscheduled_m_client_combo_id-listbox" )
-			.prepend( form )
-			.jqmData( "filter-form", form );
-	}
-	listview.filterable({ input: input });
-})
-.on( "pagebeforeshow pagehide", "#unscheduled_m_client_combo_id-dialog", function( e ) {
-	var form = $( "#unscheduled_m_client_combo_id-listbox" ).jqmData( "filter-form" ),
-		placeInDialog = ( e.type === "pagebeforeshow" ),
-		destination = placeInDialog ? $( e.target ).find( ".ui-content" ) : $( "#unscheduled_m_client_combo_id-listbox" );
-	form
-		.find( "input" )
-		.textinput( "option", "inset", !placeInDialog )
-		.end()
-		.prependTo( destination );
-});
-
-
-//-------------------------------------Delivery Distributor Combo list -----------------------------
-
-$.mobile.document.on( "listviewcreate", "#delivery_distributor_cmb_id-menu", function( e ) {
-	var input,
-		listbox = $( "#delivery_distributor_cmb_id-listbox" ),
-		form = listbox.jqmData( "filter-form" ),
-		listview = $( e.target );
-	if ( !form ) {
-		input = $( "<input id='clientSearch' data-type='search'></input>" );
-		form = $( "<form></form>" ).append( input );
-		input.textinput();
-		$( "#delivery_distributor_cmb_id-listbox" )
-			.prepend( form )
-			.jqmData( "filter-form", form );
-	}
-	listview.filterable({ input: input });
-})
-.on( "pagebeforeshow pagehide", "#delivery_distributor_cmb_id-dialog", function( e ) {
-	var form = $( "#delivery_distributor_cmb_id-listbox" ).jqmData( "filter-form" ),
-		placeInDialog = ( e.type === "pagebeforeshow" ),
-		destination = placeInDialog ? $( e.target ).find( ".ui-content" ) : $( "#delivery_distributor_cmb_id-listbox" );
-	form
-		.find( "input" )
-		.textinput( "option", "inset", !placeInDialog )
-		.end()
-		.prependTo( destination );
-});
-
-//-------------------------------------Delivery distributor client/ retailer -----------------------------
-
-$.mobile.document.on( "listviewcreate", "#delivery_retailer_cmb_id-menu", function( e ) {
-	var input,
-		listbox = $( "#delivery_retailer_cmb_id-listbox" ),
-		form = listbox.jqmData( "filter-form" ),
-		listview = $( e.target );
-	if ( !form ) {
-		input = $( "<input id='clientSearch' data-type='search'></input>" );
-		form = $( "<form></form>" ).append( input );
-		input.textinput();
-		$( "#delivery_retailer_cmb_id-listbox" )
-			.prepend( form )
-			.jqmData( "filter-form", form );
-	}
-	listview.filterable({ input: input });
-})
-.on( "pagebeforeshow pagehide", "#delivery_retailer_cmb_id-dialog", function( e ) {
-	var form = $( "#delivery_retailer_cmb_id-listbox" ).jqmData( "filter-form" ),
-		placeInDialog = ( e.type === "pagebeforeshow" ),
-		destination = placeInDialog ? $( e.target ).find( ".ui-content" ) : $( "#delivery_retailer_cmb_id-listbox" );
-	form
-		.find( "input" )
-		.textinput( "option", "inset", !placeInDialog )
-		.end()
-		.prependTo( destination );
-});
-	
-
-//------------------------------------- visit plan market -----------------------------
-$.mobile.document.on( "listviewcreate", "#visit_market_cmb_id-menu", function( e ) {
-	var input,
-		listbox = $( "#visit_market_cmb_id-listbox" ),
-		form = listbox.jqmData( "filter-form" ),
-		listview = $( e.target );
-	if ( !form ) {
-		input = $( "<input id='clientSearch' data-type='search'></input>" );
-		form = $( "<form></form>" ).append( input );
-		input.textinput();
-		$( "#visit_market_cmb_id-listbox" )
-			.prepend( form )
-			.jqmData( "filter-form", form );
-	}
-	listview.filterable({ input: input });
-})
-.on( "pagebeforeshow pagehide", "#visit_market_cmb_id-dialog", function( e ) {
-	var form = $( "#visit_market_cmb_id-listbox" ).jqmData( "filter-form" ),
-		placeInDialog = ( e.type === "pagebeforeshow" ),
-		destination = placeInDialog ? $( e.target ).find( ".ui-content" ) : $( "#visit_market_cmb_id-listbox" );
-	form
-		.find( "input" )
-		.textinput( "option", "inset", !placeInDialog )
-		.end()
-		.prependTo( destination );
-});
-
-//------------------------------------- visit plan client/ retailer -----------------------------
-
-$.mobile.document.on( "listviewcreate", "#visit_plan_client_cmb_id-menu", function( e ) {
-	var input,
-		listbox = $( "#visit_plan_client_cmb_id-listbox" ),
-		form = listbox.jqmData( "filter-form" ),
-		listview = $( e.target );
-	if ( !form ) {
-		input = $( "<input id='clientSearch' data-type='search'></input>" );
-		form = $( "<form></form>" ).append( input );
-		input.textinput();
-		$( "#visit_plan_client_cmb_id-listbox" )
-			.prepend( form )
-			.jqmData( "filter-form", form );
-	}
-	listview.filterable({ input: input });
-})
-.on( "pagebeforeshow pagehide", "#visit_plan_client_cmb_id-dialog", function(  e ) {
-	var form = $( "#visit_plan_client_cmb_id-listbox" ).jqmData( "filter-form" ),
-		placeInDialog = ( e.type === "pagebeforeshow" ),
-		destination = placeInDialog ? $( e.target ).find( ".ui-content" ) : $( "#visit_plan_client_cmb_id-listbox" );
-	form
-		.find( "input" )
-		.textinput( "option", "inset", !placeInDialog )
-		.end()
-		.prependTo( destination );
-});
-	
-
-//------------------------------------- marchandizing Item  -----------------------------
-
-$.mobile.document.on( "listviewcreate", "#marchandizing_item_id-menu", function( e ) {
-	var input,
-		listbox = $( "#marchandizing_item_id-listbox" ),
-		form = listbox.jqmData( "filter-form" ),
-		listview = $( e.target );
-	if ( !form ) {
-		input = $( "<input id='clientSearch' data-type='search'></input>" );
-		form = $( "<form></form>" ).append( input );
-		input.textinput();
-		$( "#marchandizing_item_id-listbox" )
-			.prepend( form )
-			.jqmData( "filter-form", form );
-	}
-	listview.filterable({ input: input });
-})
-.on( "pagebeforeshow pagehide", "#marchandizing_item_id-dialog", function( e ) {
-	var form = $( "#marchandizing_item_id-listbox" ).jqmData( "filter-form" ),
-		placeInDialog = ( e.type === "pagebeforeshow" ),
-		destination = placeInDialog ? $( e.target ).find( ".ui-content" ) : $( "#marchandizing_item_id-listbox" );
-	form 
-		.find( "input" )
-		.textinput( "option", "inset", !placeInDialog )
-		.end()
-		.prependTo( destination );
-});
-
-
-////----------------------------Set Market Combo---------
-$.mobile.document
-.on( "listviewcreate", "#se_market-menu", function( e ) {
-	var input,
-		listbox = $( "#se_market-listbox" ),
-		form = listbox.jqmData( "filter-form" ),
-		listview = $( e.target );
-	if ( !form ) {
-		input = $( "<input id='marketSearch' data-type='search'></input>" );
-		form = $( "<form></form>" ).append( input );
-		input.textinput();
-		$( "#se_market-listbox" )
-			.prepend( form )
-			.jqmData( "filter-form", form );
-	}
-	listview.filterable({ input: input });
-})
-.on( "pagebeforeshow pagehide", "#se_market-dialog", function( e ) {
-	var form = $( "#se_market-listbox" ).jqmData( "filter-form" ),
-		placeInDialog = ( e.type === "pagebeforeshow" ),
-		destination = placeInDialog ? $( e.target ).find( ".ui-content" ) : $( "#se_market-listbox" );
-	form
-		.find( "input" )
-		.textinput( "option", "inset", !placeInDialog )
-		.end()
-		.prependTo( destination );
-});
 //==========================================doctor===============
 
 $.mobile.document
@@ -2039,6 +1578,7 @@ $.mobile.document
 //============Doctor end
 
 function takePictureNext(){	
+	
 	$("#error_home_page").html("");
 	$("#btn_prescription_submit").show();
 	
@@ -2051,8 +1591,14 @@ function takePictureNext(){
 	}else{
 		
 		//--------------------------	
-		url = "#page_route";
-		$.mobile.navigate(url);
+		$("#ret_cat").hide();
+		$("#d_visit").html("Doctors");
+		$("#v_path").html('<font style="font-weight:bold; font-size:13px; color:#666">Visit - Market - Doctor</font>');
+		localStorage.doctor_flag=1;
+		localStorage.visit_page="NO";
+		addMarketList();
+		//url = "#page_route";
+		//$.mobile.navigate(url);
 	}
 }
 
