@@ -671,6 +671,9 @@ function prescription_submit(){
 											$("#error_prescription_submit").html(resultArray[1]);
 											$("#wait_image_prescription").hide();
 											$("#btn_prescription_submit").show();
+											
+								},
+							success:function(data, status,xhr){				
 				//$.post(localStorage.base_url+'prescription_submit?',{
 //						cid:localStorage.cid,
 //						rep_id:localStorage.user_id,
@@ -709,10 +712,8 @@ function prescription_submit(){
 											document.getElementById('myImagePrescription_2').src = '';
 											document.getElementById('myImagePrescription_3').src = '';
 										
-											//image upload function	
-											alert ('1')								
+											//image upload function									
 											uploadPhoto(prescriptionPhoto, imageName);
-											alert ('2')	
 											//alert ('0')
 											//alert (localStorage.pic_no)
 											if (localStorage.pic_no==1){								
