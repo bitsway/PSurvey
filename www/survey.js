@@ -472,7 +472,7 @@ function marketRetailerNext_doc(mClientNameID) {
 				//location.reload();
 				//alert (localStorage.product_tbl_doc_campaign)
 								
-				$("#item_load").hide();	
+				//$("#item_load").hide();	
 			
 			}
 	}
