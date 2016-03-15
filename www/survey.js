@@ -709,8 +709,10 @@ function prescription_submit(){
 											document.getElementById('myImagePrescription_2').src = '';
 											document.getElementById('myImagePrescription_3').src = '';
 										
-											//image upload function									
+											//image upload function	
+											alert ('1')								
 											uploadPhoto(prescriptionPhoto, imageName);
+											alert ('2')	
 											//alert ('0')
 											//alert (localStorage.pic_no)
 											if (localStorage.pic_no==1){								
