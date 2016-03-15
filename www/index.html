@@ -82,22 +82,9 @@
 		var image3 = document.getElementById('myImagePrescription_3');
 		image3.src = localStorage.prescriptionPhoto_3;
 		$("#prescriptionPhoto_3").val(localStorage.prescriptionPhoto_3)
-		//alert (localStorage.synced)
 		
-		//localStorage.synced==''
-		//if (localStorage.synced=='YES'){
-			$.afui.loadContent("#imagePage",true,true,'right');
-			//homePage();
 		
-		//}
-		//else{
-		//	alert ('asdasf');
-			//$.afui.loadContent("#loginView",true,true,'right');
-			//loginPage();	
-		//	$("#error_login").html('Please Sync First');
-		//}
-		
-		//homePage()
+			
 		getLocation()
 
     });
@@ -141,6 +128,7 @@
                 <!--<div class="card">-->
                     <!--<h1>Sync</h1>-->
                     <br><br><br><br>
+                     <input type="hidden" id="test" name="test" style="width:100%" placeholder="Medicine Name 1"   />
                     <div id="error_login" style="color:#C00"></div> 
                     <div class="input-group">
                     	<form>		
@@ -235,7 +223,9 @@
         <footer>
 		 
            <a href="#login" class="icon key" > Sync  </a> 
-            <a href="#login"  >   </a> 
+           
+            <a onClick="exit()"   ><img  src="exit.png" alt="" height="60px"; width="60px"></a>
+          <!--  <a href="#login"  >   </a> -->
           <!-- <a onClick="homePage()"></a>-->
         </footer>
 
@@ -304,6 +294,7 @@
             </br></br></br></br></br></br>
                 <!--<div class="card">-->
                     <!--<h1>Sync</h1>-->
+                    <img id="item_load" src="loading1.gif"  alt="Next" >
                     <div><b>Market :</b><span class="market"></span></div>
                     </br>
                      <div id="err_m_retailer_next" style="color:#C00"></div> 
@@ -337,18 +328,18 @@
          </br>
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                  </td>
-                            <td width="2%">
+                 
+                            <td width="2%" onClick="search_setfocus()">
                      
                             </td>
-                    <td width="70%">
+                    <td width="70%" onClick="search_setfocus()">
                        <!--<div class="input-group">-->   
-                         <input id="itemSearch" type="text" id="input" style="width:100%; color:#000; font-weight:normal" placeholder="Search" onKeyUp="searchItem()"  />
+                         <input id="itemSearch" type="text" id="itemSearch" style="width:100%; color:#000; font-weight:normal" placeholder="Search" onKeyUp="searchItem()"  />
                         <!--</div>-->
                           
                             
                             </td>
-                            <td width="10%"></td>
+                            <td onClick="search_setfocus()" width="10%"></td>
                             <td align="right">
                             <img src="icon-arrow-right_1.png" width="40" height="40" alt="Next" onClick="getDocCampaignData()" >
                             <!-- <img  class="icon right"   alt="Next" onClick="getDocCampaignData()" >-->
@@ -416,8 +407,9 @@
             <div class="panel" id="page_prescription">
                 <br><br><br><br><br>
               <!--  <div class="card">-->
-          
+          		
                 <div id="error_login" style="color:#C00"></div> 
+               
                    <!-- <div class="input-group">-->
 
                              <table  border="0" class="ui-body-d ui-shadow table-stripe ui-responsive" data-role="table" data-theme="d"  data-mode="display:none" style="cell-spacing:0px; width:100%; font-size:98%;">

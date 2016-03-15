@@ -1,18 +1,5 @@
 
 
-//function homePage_set() {
-//	if (localStorage.synced=='YES'){
-//			$.afui.loadContent("#imagePage",true,true,'right');
-//
-//		
-//		}
-//		else{
-//			alert ('asdasf');
-//			$.afui.loadContent("#login",true,true,'right');
-//				
-//			$("#error_login").html('Please Sync First');
-//		}
-//}
 function homePage() {
 	
 	$.afui.loadContent("#imagePage",true,true,'right');
@@ -27,7 +14,7 @@ function page_doctor_campaign(){
 	$.afui.loadContent("#page_doctor_campaign",true,true,'right');
 }
 function page_doctor(){
-	//alert ('assdfsdf')
+	$("#item_load").hide();
 	localStorage.click_flag=0;
 	$.afui.loadContent("#page_doctor",true,true,'right');
 }
@@ -118,8 +105,24 @@ function check_user() {
 		$("#wait_image_login").show();
 		
 		$("#error_login").html('');
-		$.post(apipath_base_photo_dm,{ },
-    	function(data, status){
+		
+		$.ajax(apipath_base_photo_dm,{
+				type: 'POST',
+				timeout: 30000,
+				error: function(xhr) {
+				//alert ('Error: ' + xhr.status + ' ' + xhr.statusText);
+				$("#wait_image_login").hide();
+				$("#loginButton").show();
+				$("#error_login").html('Network timeout. Please ensure data connectivity and re-submit.');
+									},
+				success:function(data, status,xhr){
+			//	alert (status)
+				
+		
+		//alert (apipath_base_photo_dmStatus)
+		//$.post(apipath_base_photo_dm,{},
+//    	function(data, status){
+			
 			if (status=='success'){
 				localStorage.base_url='';
 				
@@ -150,10 +153,24 @@ function check_user() {
 							//===================================
 							//$("#error_login").html(localStorage.base_url+'check_user?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode);
 							//$.post(localStorage.base_url+'check_user?',{cid: localStorage.cid,rep_id:localStorage.user_id,rep_pass:localStorage.user_pass,synccode:localStorage.synccode},
-							 $.post(localStorage.base_url+'check_user?',{cid: localStorage.cid,rep_id:localStorage.user_id,rep_pass:localStorage.user_pass,synccode:localStorage.synccode},
-    						 
-								
-								 function(data, status){
+							
+							 $.ajax(localStorage.base_url+'check_user?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode,{
+								// cid:localStorage.cid,rep_id:localStorage.user_id,rep_pass:localStorage.user_pass,synccode:localStorage.synccode,
+								type: 'POST',
+								timeout: 30000,
+								error: function(xhr) {
+								//alert ('Error: ' + xhr.status + ' ' + xhr.statusText);
+								$("#wait_image_login").hide();
+								$("#loginButton").show();
+								$("#error_login").html('Network timeout. Please ensure data connectivity and re-submit.');
+													},
+								success:function(data, status,xhr){
+					
+								//alert (localStorage.cid)
+							// $.post(localStorage.base_url+'check_user?',{cid: localStorage.cid,rep_id:localStorage.user_id,rep_pass:localStorage.user_pass,synccode:localStorage.synccode},
+//    						 
+//								
+//								 function(data, status){
 									 if (status!='success'){
 										$("#wait_image_login").hide();
 										$("#loginButton").show();
@@ -166,7 +183,8 @@ function check_user() {
 										if (resultArray[0]=='FAILED'){
 											$("#wait_image_login").hide();
 											$("#loginButton").show();								
-											$("#error_login").html(resultArray[1]);
+											//$("#error_login").html(resultArray[1]);
+											$("#test").val(localStorage.base_url+'check_user?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode);
 										}
 										else if (resultArray[0]=='SUCCESS'){
 											localStorage.synced='YES'		
@@ -194,12 +212,14 @@ function check_user() {
 												
 												var product_qty='';																		
 												
-												product_tbl_doc_campaign=product_tbl_doc_campaign+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin" onClick="check_boxTrue(\''+product_id2+'\')"> '+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><label for="doc_camp'+product_id2+'"></br></label><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'</br><font id="'+ product_id2 +'" onClick="tr_item_doc_campaign(\''+product_id2+'\')" class="name" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
+												product_tbl_doc_campaign=product_tbl_doc_campaign+'<li  style="border-bottom-style:solid; border-color:#CBE4E4;border-bottom-width:thin" > '+'<table width="100%" border="0" id="order_tbl" cellpadding="0" cellspacing="0" style="border-radius:5px;">'+'<tr style="border-bottom:1px solid #D2EEE9;"><td width="60px" style="text-align:center; padding-left:5px;"><input class="docCampaign" type="checkbox" onClick="getDocCampaignData_keyup(\''+product_id2+'\')" name="doc_camp'+product_id2+'" value="checkbox" id="doc_camp'+product_id2+'"><label for="doc_camp'+product_id2+'"></br></label><input type="hidden" id="doc_camp_id'+product_id2+'" value="'+product_id2+'" ><input type="hidden" id="doc_camp_price'+product_id2+'" value="'+product_price+'" ><input type="hidden" id="doc_camp_name'+product_id2.toUpperCase()+'" value="'+product_name2.toUpperCase()+'" placeholder="qty" ></td><td  style="text-align:left;">'+'</br><font id="'+ product_id2 +'" onClick="check_boxTrue(\''+product_id2+'\')" class="name" >'+ product_name2.toUpperCase()+'</font></td></tr>'+'</table>'+'</li>';
 												//$("#error_login").html('Processing Product List....');	
 											}
 											
 											
 											localStorage.product_tbl_doc_campaign=product_tbl_doc_campaign
+											$("#campaign_combo_id_lv").empty()
+											$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign);
 											
 											//================Market
 													var planMarketList = localStorage.marketListStr.split('<rd>');
@@ -236,9 +256,10 @@ function check_user() {
 									
 							
 									
-								});
+								//});
 							
-							
+							}///////////
+            })////////////
 							
 							
 							
@@ -251,9 +272,10 @@ function check_user() {
 				$("#error_login").html('Base URL not available');
 			}
      
-    });
+   // });
 
-		
+		}///////////
+            })////////////
 		
 		  }//end else	
 	}//function
@@ -381,6 +403,7 @@ function marketNext_doc(marketNameID) {
 											$("#btn_unschedule_market").show();
 											
 											//------- 
+											$("#item_load").hide();
 											$.afui.loadContent("#page_doctor",true,true,'right');
 		
 											localStorage.click_flag=0;
@@ -397,6 +420,7 @@ function marketNext_doc(marketNameID) {
 
 
 function marketRetailerNext_doc(mClientNameID) {
+	$("#item_load").show();
 	if (localStorage.click_flag==0){
 			localStorage.click_flag==1
 			visit_client=mClientNameID;		
@@ -447,9 +471,8 @@ function marketRetailerNext_doc(mClientNameID) {
 				//$('#campaign_combo_id_lv').listview();
 				//location.reload();
 				//alert (localStorage.product_tbl_doc_campaign)
-				$("#campaign_combo_id_lv").empty()
-				$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign);					
-					
+								
+				$("#item_load").hide();	
 			
 			}
 	}
@@ -459,9 +482,16 @@ function marketRetailerNext_doc(mClientNameID) {
 
 
 function getDocCampaignData(){	
-	$.afui.loadContent("#page_prescription",true,true,'right');		
-	}
+	//alert (localStorage.campaign_doc_str.length)
+    if  (localStorage.campaign_doc_str.length < 5){
 	
+	$("#myerror_doctor_campaign").html('Please select minimum one Item');
+	//$.afui.loadContent("#page_prescription",true,true,'right');		
+	}
+	else{
+		$.afui.loadContent("#page_prescription",true,true,'right');
+	}
+}
 function check_boxTrue(product_id){	
 	//alert (product_id);
 	var camp_combo="#doc_camp"+product_id
@@ -633,26 +663,33 @@ function prescription_submit(){
 				
 				//$("#error_prescription_submit").text(localStorage.base_url+'prescription_submit?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+encodeURIComponent(localStorage.user_pass)+'&synccode='+localStorage.synccode+'&areaId='+areaId+'&doctor_id='+encodeURIComponent(doctorId)+'&doctor_name='+encodeURIComponent(doctor_name)+'&medicine_1='+encodeURIComponent(medicine_1)+'&medicine_2='+encodeURIComponent(medicine_2)+'&medicine_3='+encodeURIComponent(medicine_3)+'&medicine_4='+encodeURIComponent(medicine_4)+'&medicine_5='+encodeURIComponent(medicine_5)+'&latitude='+latitude+'&longitude='+longitude+'&pres_photo='+imageName+'&campaign_doc_str='+localStorage.campaign_doc_str+'&version=1')							
 				//alert (localStorage.campaign_doc_str)
-				
-				$.post(localStorage.base_url+'prescription_submit?',{
-						cid:localStorage.cid,
-						rep_id:localStorage.user_id,
-						rep_pass:encodeURIComponent(localStorage.user_pass),
-						synccode:localStorage.synccode,
-						areaId:areaId,
-						doctor_id:encodeURIComponent(doctorId),
-						doctor_name:encodeURIComponent(doctor_name),
-						medicine_1:encodeURIComponent(medicine_1),
-						medicine_2:encodeURIComponent(medicine_2),
-						medicine_3:encodeURIComponent(medicine_3),
-						medicine_4:encodeURIComponent(medicine_4),
-						medicine_5:encodeURIComponent(medicine_5),
-						latitude:localStorage.latitude_found,
-						longitude:localStorage.longitude_found,
-						pres_photo:imageName,
-						campaign_doc_str:localStorage.campaign_doc_str,
-						version:'1'},
-						function(data, status){
+				 $.ajax(localStorage.base_url+'prescription_submit?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+encodeURIComponent(localStorage.user_pass)+'&synccode='+localStorage.synccode+'&areaId='+areaId+'&doctor_id='+encodeURIComponent(doctorId)+'&doctor_name='+encodeURIComponent(doctor_name)+'&medicine_1='+encodeURIComponent(medicine_1)+'&medicine_2='+encodeURIComponent(medicine_2)+'&medicine_3='+encodeURIComponent(medicine_3)+'&medicine_4='+encodeURIComponent(medicine_4)+'&medicine_5='+encodeURIComponent(medicine_5)+'&latitude='+latitude+'&longitude='+longitude+'&pres_photo='+imageName+'&campaign_doc_str='+localStorage.campaign_doc_str+'&version=1',{
+								// cid:localStorage.cid,rep_id:localStorage.user_id,rep_pass:localStorage.user_pass,synccode:localStorage.synccode,
+								type: 'POST',
+								timeout: 30000,
+								error: function(xhr) {
+											$("#error_prescription_submit").html(resultArray[1]);
+											$("#wait_image_prescription").hide();
+											$("#btn_prescription_submit").show();
+				//$.post(localStorage.base_url+'prescription_submit?',{
+//						cid:localStorage.cid,
+//						rep_id:localStorage.user_id,
+//						rep_pass:encodeURIComponent(localStorage.user_pass),
+//						synccode:localStorage.synccode,
+//						areaId:areaId,
+//						doctor_id:encodeURIComponent(doctorId),
+//						doctor_name:encodeURIComponent(doctor_name),
+//						medicine_1:encodeURIComponent(medicine_1),
+//						medicine_2:encodeURIComponent(medicine_2),
+//						medicine_3:encodeURIComponent(medicine_3),
+//						medicine_4:encodeURIComponent(medicine_4),
+//						medicine_5:encodeURIComponent(medicine_5),
+//						latitude:localStorage.latitude_found,
+//						longitude:localStorage.longitude_found,
+//						pres_photo:imageName,
+//						campaign_doc_str:localStorage.campaign_doc_str,
+//						version:'1'},
+//						function(data, status){
 								if (status!='success'){
 									$("#error_prescription_submit").html('Network timeout. Please ensure you have active internet connection.');
 									$("#wait_image_prescription").hide();
@@ -749,7 +786,7 @@ function prescription_submit(){
 											$("#btn_prescription_submit").show();
 											}
 								}
-						
+}
 						});			 
 				
 						
@@ -913,10 +950,14 @@ function failProfile(error) {
 
 
 
+function search_setfocus(){
+	jQuery("#itemSearch").focus()
+}
 
 
-
-
+function exit() {	
+	navigator.app.exitApp();
+}
 
 
 
