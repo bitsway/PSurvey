@@ -69,7 +69,7 @@ function check_user() {
 
 	//
 //	//var  apipath_base_photo_dm='http://c003.cloudapp.net/mrepacme/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
-//	var  apipath_base_photo_dm='http://127.0.0.1:8000/mrepbiopharma/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
+	//var  apipath_base_photo_dm='http://127.0.0.1:8000/mrepbiopharma/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
 //	
 //	
 
@@ -283,11 +283,8 @@ function check_user() {
 function gotoMarket(pic_no) {
 	//alert (pic_no)
 	if (pic_no!=localStorage.pic_no){
-		//$("#campaign_combo_id_lv").empty()
-//		$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign);
-		$('input:checkbox').attr('checked',false);
-		$("#itemSearch").val('A')
-		searchItem()
+		$("#campaign_combo_id_lv").empty()
+		$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign); 
 	}
 	localStorage.pic_no=pic_no
 	
@@ -314,7 +311,7 @@ function gotoMarket(pic_no) {
 	}
 	
 	//alert (error_flag)
-	if (error_flag==1){
+	if (error_flag==0){
 		$.afui.loadContent("#marketPage",true,true,'right');
 	}
 	else{
@@ -763,8 +760,6 @@ function prescription_submit(){
 											//localStorage.pic_no='';
 											$("#campaign_combo_id_lv").empty()
 											$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign);
-											$("#itemSearch").val('A')
-											searchItem()
 											//$("#doctor_name").val("");
 											$("#medicine_1").val("");
 											$("#medicine_2").val("");
@@ -828,29 +823,9 @@ function searchItem() {
 			lis[i].style.display = 'list-item';
 		else
 			lis[i].style.display = 'none';
-		$("#campaign_combo_id_lv").find(lis[0]).first().focus()
 	}
 }
-function comboSearch() {
-	var filter_value=$("#item_combo").val().toUpperCase();
-	//alert (filter_value)
-	$("#itemSearch").val(filter_value)
-	var filter  =filter_value;
-	//alert (filter)
-	//var lis = document.getElementsById('mylist');
-	 var lis =document.getElementById("campaign_combo_id_lv").getElementsByTagName("li");
-	//var lis = document.getElementsByTagName('ul>li');
-	//alert(lis.length);
-	for (var i = 0; i < lis.length; i++) {
-		var name = lis[i].getElementsByClassName('name')[0].innerHTML;
-		
-		if (name.toUpperCase().indexOf(filter) == 0) 
-			lis[i].style.display = 'list-item';
-		else
-			lis[i].style.display = 'none';
-		$("#campaign_combo_id_lv").find(lis[0]).first().focus()
-	}
-}
+
 function searchMarket() {
 	var filter  = $("#marketSearch").val().toUpperCase();
 	//alert (filter);

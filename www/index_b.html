@@ -68,8 +68,7 @@
 		$('#market_combo_id_lv').append(localStorage.unschedule_market_cmb_id);
 		$("#campaign_combo_id_lv").empty()
 		$("#campaign_combo_id_lv").append(localStorage.product_tbl_doc_campaign);
-		$("#itemSearch").val('A')
-		searchItem()
+		
 		
 		var image1 = document.getElementById('myImagePrescription_1');
 		image1.src = localStorage.prescriptionPhoto_1;
@@ -383,44 +382,8 @@
        
         <footer>
         
-                <table width="100%" border="0">
-  <tr>
-    <td align="left">  <a onClick="page_doctor()" class="icon left" >Back</a></td>
-    <td align="right">
-		
-      			 <select id="item_combo" style=" width:40px"data-native-menu="false" onChange="comboSearch()" >
-                        <option value="A" >A</option>
-                        <option value="B" >B</option>
-                        <option value="C" >C</option>
-                        <option value="D" >D</option>
-                        <option value="E" >E</option>
-                        <option value="F" >F</option>
-                        <option value="G" >G</option>
-                        <option value="H" >H</option>
-                        <option value="I" >I</option>
-                        <option value="J" >J</option>
-                        <option value="K" >K</option> 
-                        <option value="L" >L</option>
-                        <option value="M" >M</option>
-                        <option value="N" >N</option>
-                        <option value="O" >O</option> 
-                        <option value="P" >P</option>
-                        <option value="Q" >Q</option>
-                        <option value="R" >R</option>
-                        <option value="S" >S</option>
-                        <option value="T" >T</option>
-                        <option value="U" >U</option>
-                        <option value="V" >V</option>
-                        <option value="W" >W</option>
-                        <option value="X" >X</option>
-                        <option value="Y" >Y</option>
-                        <option value="Z" >Z</option>
-                </select>
-         </td>
-  </tr>
-</table>	
-         
-		  <!--<a onClick="homePage()" class="icon home" >Home</a>-->
+          <a onClick="page_doctor()" class="icon left" >Back</a>
+		  <a onClick="homePage()" class="icon home" >Home</a>
           
            </footer>
 
