@@ -314,7 +314,7 @@ function gotoMarket(pic_no) {
 	}
 	
 	//alert (error_flag)
-	if (error_flag==1){
+	if (error_flag==0){
 		$.afui.loadContent("#marketPage",true,true,'right');
 	}
 	else{
