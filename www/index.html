@@ -226,7 +226,7 @@
         <footer>
 		 
            <a href="#login" class="icon key" > Sync  </a> 
-           
+           <a href="#page_reports" class="icon paper" >Report</a>
             <a onClick="exit()"   ><img  src="exit.png" alt="" height="60px"; width="60px"></a>
           <!--  <a href="#login"  >   </a> -->
           <!-- <a onClick="homePage()"></a>-->
@@ -547,9 +547,137 @@
   
   
   
+ <!--//==============Report===================-->
+ 
   
+<div class="view" id="page_reportsView">
+<div class="pages">
+
+<header><h1>Saved Visit</h1></header> 
+
+
+    <div class="panel" id="page_reports">
+    </br></br></br></br>
+        <!--<div class="card">-->
+            <!--<h1>Sync</h1>-->
+             
+        
+    <div id="myerror" style="color:#C00"></div>               
+                              
+					<div id="report"> </div>
+					<table width="100%" border="0"><tr><td>Rep: </td><td>
+                    <input id="se_mpo_doc" name="se_mpo_doc" type="text" readonly placeholder="Rep">
+                    <input id="se_item_doc" name="se_item_doc" type="hidden" placeholder="Item"></td></tr>
+                    <tr>
+                    <td>Market: </td>
+                    <td><input id="se_market_doc" name="se_market_doc" type="text" placeholder="Market"  ></td></tr>
+                    <table width="100%" border="0">
+                    <tr><td>Rep: </td><td><input id="se_mpo_doc" name="se_mpo_doc" type="text" placeholder="Rep">
+                    <input id="se_item_doc" name="se_item_doc" type="hidden" placeholder="Item"></td></tr>
+                    <tr><td>Market: </td><td><input id="se_market_doc" name="se_market_doc" type="text" placeholder="Market/level"  ></td></tr>
+					  <tr>
+						<td>From &nbsp;</td>
+						<td><input id="date_from_doc" name="date_from_doc" type="date" data-role="date"  ></td>
+						</tr>	
+					
+					
+					  <tr>
+						<td>To &nbsp;</td>
+						<td><input id="date_to_doc" name="date_to_doc" type="date" data-role="date" ></td>
+					  </tr>
+					</table>
+				
+                </br>
+                <input type="submit" id="loginButton" onClick="summary_report_prescription();"  style="width:100%; height:50px; background-color:#09C; color:#FFF; font-size:20px" value="   Prescription Count     "   />
+                </br>
+                <input type="submit" id="loginButton" onClick="detail_report_prescription();"  style="width:100%; height:50px; background-color:#09C; color:#FFF; font-size:20px" value="   Prescription Detail     "   />
+				
+				
+                
+                <br>
+				<br>
+    
+           
+       <!-- </div>-->
+       </div>
+    </div>
+
+<footer>
+<a onClick="homePage()" class="icon home" >Home</a>
+<a onClick="homePage()"  ></a>
+ 
+
+</div>   
   
-  
+<div class="view" id="page_report_prescriptionView">
+        <div class="pages">
+         <header><h3> <div id="report_header_prescription" align="center"> Prescription Summary</div></h3></header> 
+            <div class="panel" id="page_report_prescription">
+            </br></br></br></br>
+                <!--<div class="card">-->
+                    <!--<h1>Sync</h1>-->
+<!--                   <input id="myerror_s_report_doctortxt" name="myerror_s_report_doctortxt" type="text"  >-->
+					<input id="myerror_s_reporttxt" name="myerror_s_report_doctortxt" type="hidden"  >
+                     <div id="myerror_s_report_prescription" style="color:#C00"></div>               
+				<ul data-inset="true" data-role="listview">
+					
+					<li>
+						
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td><div id="report_mpo_prescription">  </div></td>
+                          </tr>
+                           <tr>
+                            <td><div id="report_market_prescription" >  </div></td>
+                           </tr>
+                          <tr>
+                            <td><div id="date_f_prescription"> </div></td>
+							</tr>
+							  <tr>	
+								<td> <div id="date_t_prescription">  </div></td>
+								
+								
+							  </tr>
+							</table>
+						
+												
+					</li>
+                  <div style='background-color:#00BFBF; height:5px; font-size:5px'></div>
+					<li>
+					  		<div id="wait_image_p"><img style="width:50px" src="loading.gif" alt="">	</div>
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+							  <tr>
+								
+								<td><div id="visit_count_prescription">  </div></td>
+								 </tr>
+								 <tr>
+								<td><div id="visit_withAtt_prescription">  </div></td>
+								 </tr>
+								 <tr>
+								<td><div id="visit_withoutAtt_prescription">  </div></td>
+							  </tr>
+							</table>
+		
+					</li>
+						
+											
+				</ul>
+				
+				
+				<div id="rep_detail_prescription" style="color:#000066; font-size:10px; width:100%"></div>
+				
+				
+                    </div>
+                    
+               <!-- </div>-->
+            </div>
+       
+        <footer>
+		<a onClick="page_reports_dcr()" class="icon left" >Home</a>
+        <a onClick="page_reports_dcr()"  ></a>
+         
+
+    </div>    
   
   
             

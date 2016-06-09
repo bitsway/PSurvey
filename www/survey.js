@@ -18,6 +18,10 @@ function page_doctor(){
 	localStorage.click_flag=0;
 	$.afui.loadContent("#page_doctor",true,true,'right');
 }
+function page_reports_dcr() {
+	//$("#order_load").hide();
+	$.afui.loadContent("#page_reports",true,true,'right');
+}
 //-------GET GEO LOCATION
 function getLocation() {
 	$("#error_prescription_submit").html("Confirming location. Please wait.");
@@ -69,11 +73,11 @@ function check_user() {
 
 	//
 //	//var  apipath_base_photo_dm='http://c003.cloudapp.net/mrepacme/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
-//	var  apipath_base_photo_dm='http://127.0.0.1:8000/mrepbiopharma/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
+	var  apipath_base_photo_dm='http://127.0.0.1:8000/mrepbiopharma/syncmobile_prescription/dm_prescription_path?CID='+cid +'&HTTPPASS=e99business321cba'
 //	
 //	
 
-	var apipath_base_photo_dm ='http://e2.businesssolutionapps.com/welcome/dmpath_prescription/get_path?CID='+cid +'&HTTPPASS=e99business321cba';
+//	var apipath_base_photo_dm ='http://e2.businesssolutionapps.com/welcome/dmpath_prescription/get_path?CID='+cid +'&HTTPPASS=e99business321cba';
 	
 	
 	var user_id=$("#user_id").val();
@@ -991,3 +995,225 @@ function exit() {
 
 
 
+//============Report
+//=====================Report============
+//=====================Report============
+function set_report_parameter_doctor() {	
+	var date_from_doc=$("#date_from_doc").val();
+	var date_to_doc=$("#date_to_doc").val();
+	var rep_id_report_doc=$("#se_mpo_doc").val();
+	var se_item_report_doc=$("#se_item_doc").val();
+	var se_market_report_doc=$("#se_market_doc").val();
+	
+	if (se_market_report_doc==""){
+		se_market_report_doc="All"
+	}
+	
+	
+	se_item_report="All"
+	
+	if (date_from_doc.length==0){
+		date_from_show_doc="Today"
+	}
+	else{
+		date_from_show_doc=date_from_doc
+	}
+	if (date_to_doc.length==0){
+		date_to_show_doc="Today"
+	}
+	else{
+		date_to_show_doc=date_to_doc
+	}
+	//alert (se_item_report);
+	
+	if (rep_id_report_doc.length==0){
+		rep_id_report_doc=localStorage.user_id;
+	}
+	
+	localStorage.date_from_doc=date_from_doc
+	localStorage.date_to_doc=date_to_doc;
+	localStorage.rep_id_report_doc=rep_id_report_doc;
+	localStorage.se_item_report_doc=se_item_report_doc;
+	localStorage.se_market_report_doc=se_market_report_doc;
+	
+	
+	
+	
+	$("#report_market_prescription").html("Market :"+localStorage.se_market_report_doc);
+	$("#report_mpo_prescription").html("MPO :"+localStorage.rep_id_report_doc);
+	$("#date_f_prescription").html("DateFrom :"+date_from_show_doc);
+	$("#date_t_prescription").html("DateTo :"+date_to_show_doc);
+	
+	
+	
+
+}
+//=====================PRESCRIPTION REPORT======================
+function summary_report_prescription() {
+	$("#myerror_s_report").html('')
+	$("#wait_image_p").show();		
+	set_report_parameter_doctor();
+	
+
+//Blank all div
+		
+	$("#visit_count_prescription").html("");	
+	$("#rep_detail_doctor").html('');
+//$("#myerror_s_report").html('asfdsg');
+	// ajax-------	
+	    $("#myerror_s_reporttxt").val(localStorage.base_url+'report_summary_prescription?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode+'&rep_id_report='+localStorage.rep_id_report_doc+'&se_item_report='+localStorage.se_item_report_doc+'&se_market_report='+localStorage.se_market_report_doc+'&date_from='+localStorage.date_from_doc+'&date_to='+localStorage.date_to_doc+'&user_type='+localStorage.user_type);
+	// ajax-------
+	
+			$.ajax(localStorage.base_url+'report_summary_prescription?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode+'&rep_id_report='+localStorage.rep_id_report_doc+'&se_item_report='+localStorage.se_item_report_doc+'&se_market_report='+localStorage.se_market_report_doc+'&date_from='+localStorage.date_from_doc+'&date_to='+localStorage.date_to_doc+'&user_type='+localStorage.user_type,{
+
+								type: 'POST',
+								timeout: 30000,
+								error: function(xhr) {
+								$("#wait_image_prescription").hide();
+								$("#myerror_s_report").html('Network timeout. Please ensure data connectivity and re-submit.');
+													},
+								success:function(data, status,xhr){	
+									  $("#wait_image_p").hide();
+									
+									 if (status!='success'){
+										 
+										$("#myerror_s_report").html('Network timeout. Please ensure data connectivity and re-submit..');
+										
+									 }
+									 else{
+										  
+									 // alert (status)
+							var resultArray = data.replace('</START>','').replace('</END>','').split('<SYNCDATA>');	
+										
+								if (resultArray[0]=='FAILED'){
+									
+											$("#myerror_s_report").text(resultArray[0]);	
+											
+										}
+								else if (resultArray[0]=='SUCCESS'){	
+	
+												
+								var result_string=resultArray[1];
+								
+																
+								//----------------
+								var resultList = result_string.split('<rd>');
+								var visit_count=resultList[0];
+								//var visit_areawise=resultList[1];
+								//var visit_repwise=resultList[2];
+							
+								
+								//-----------------
+							//	$("#err_retailer_date_next").text("");
+								
+								$("#report_header_prescription").text("Prescription Count");
+								$("#visit_count_prescription").html("<font style='font-size:15px; color:#666'>"+"Prescription Count:"+visit_count+"</font>");
+								//$("#visit_withAtt_prescription").html("<font style='font-size:15px; color:#666'>"+visit_areawise+"</font>");
+								//$("#visit_withoutAtt_prescription").html("<font style='font-size:15px; color:#666'>"+visit_repwise+"</font>");
+								
+								//-----
+
+								
+							}else{	
+								$("#wait_image_p").hide();					
+								$("#myerror_s_report").html('Network Timeout. Please try again.');
+								}
+						}
+					  }
+			 });//end ajax
+	
+	
+	
+	
+	$.afui.loadContent("#page_report_prescription",true,true,'right');
+	
+}
+
+//========================Detail Report============
+function detail_report_prescription() {	
+	$("#myerror_s_report").html('')
+	$("#wait_image_p").show();
+	set_report_parameter_doctor();
+
+	
+	
+	localStorage.date_to_doc=localStorage.date_from_doc;
+	$("#date_f_doctor").html("Date :"+date_from_show_doc);
+	$("#date_t_doctor").html("");
+	
+	 //Blank all div
+	
+	$("#visit_count_doctor").html("");
+	$("#visit_withAtt_doctor").html("");
+	$("#visit_withoutAtt_doctor").html("");
+	
+	$("#rep_detail_doctor").html('');
+//$("#myerror_s_report").html('asfdsg');
+	// ajax-------
+	//$("#myerror_s_report_prescription").html(localStorage.base_url+'report_detail_prescription?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode+'&rep_id_report='+localStorage.rep_id_report_doc+'&se_item_report='+localStorage.se_item_report_doc+'&se_market_report='+localStorage.se_market_report_doc+'&date_from='+localStorage.date_from_doc+'&date_to='+localStorage.date_to_doc+'&user_type='+localStorage.user_type);
+	// ajax-------
+	$.ajax(localStorage.base_url+'report_detail_prescription?cid='+localStorage.cid+'&rep_id='+localStorage.user_id+'&rep_pass='+localStorage.user_pass+'&synccode='+localStorage.synccode+'&rep_id_report='+localStorage.rep_id_report_doc+'&se_item_report='+localStorage.se_item_report_doc+'&se_market_report='+localStorage.se_market_report_doc+'&date_from='+localStorage.date_from_doc+'&date_to='+localStorage.date_to_doc+'&user_type='+localStorage.user_type,{
+
+								type: 'POST',
+								timeout: 30000,
+								error: function(xhr) {	
+								$("#wait_image_p").hide();
+								$("#myerror_s_report").html('Network timeout. Please ensure data connectivity and re-submit.');
+													},
+								success:function(data, status,xhr){	
+									$("#wait_image_p").hide();
+									 if (status!='success'){
+										$("#myerror_s_report").html('Network timeout. Please ensure data connectivity and re-submit..');
+										
+									 }
+									 else{	
+									 	var resultArray = data.replace('</START>','').replace('</END>','').split('<SYNCDATA>');	
+										
+								if (resultArray[0]=='FAILED'){
+											$("#myerror_s_report").text(resultArray[0]);	
+											
+										}
+								else if (resultArray[0]=='SUCCESS'){
+														
+								var result_string=resultArray[1];
+								
+																
+								//----------------
+								var resultList = result_string.split('<rd>');
+
+								var visit_count=resultList[0];
+								//var visit_with_attribute=resultList[1];
+								//var visit_without_attribute=resultList[2];
+								var report_detal =resultList[1];
+							
+								
+								//-----------------
+								$("#err_retailer_date_next").text("");
+								
+								$("#report_header_prescription").text("prescription Detail");
+								
+								
+								
+								$("#visit_count_prescription").html("Prescription Count:"+visit_count);
+								
+//                              if (localStorage.user_type=='sup'){
+//									$("#visit_withAtt_prescription").html(visit_with_attribute);
+//									$("#visit_withoutAtt_prescription").html(visit_without_attribute);
+//								}
+								
+								$("#rep_detail_prescription").html("<div width='70%'>"+report_detal+"</div>");
+								
+							}else{	
+								$("#wait_image_p").hide();					
+								$("#myerror_s_report").html('Network Timeout. Please try again.');
+								}
+						}
+					  }
+			 });//end ajax
+	
+	
+	
+	
+	$.afui.loadContent("#page_report_prescription",true,true,'right');
+
+}
